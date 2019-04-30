@@ -24,7 +24,6 @@ public class Hostel{
 	           }
            }catch(Exception e){
                //print
-        	   
                System.out.println(e);
                
            }finally{
@@ -43,17 +42,25 @@ public class Hostel{
 		               //write your code here !!!
 //		               compare check name with name and return true if present and false if not
 		               if(checkName.equals(name))
-		            	   return true;
-	               }          
+		            	   return false;
+	               }
+	               
 	               
 	            }catch(Exception e){
 	                System.out.println(e);
 	            }
-			return false;
+			return true;
 	   }
-       public static void allotHostel() throws IOException{
+       public static void allotHostel(){
     	   //write your code here!!!
-    	    writedata();
+    	   try
+    	   {
+    		   writedata();
+    	   }
+    	   catch(Exception e)
+    	   {
+    		   System.out.println(e);
+    	   }
     	   
        }
 
@@ -76,11 +83,11 @@ public class Hostel{
         }
            
        public static boolean verifyName(String name){
-    	   boolean chk = true;
-    	   
-    	   //write your code here
-    	   chk=readData(name);
-    	   
+    	   boolean chk;
+    	   if(readData(name))
+    		   chk = false;
+    	   else
+    		   chk = true;
     	   return chk;
         }
         
